@@ -1,0 +1,1 @@
+console.log('%c this is colored','background:#aaa;color:#bada55','this is not colored');
