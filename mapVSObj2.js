@@ -1,5 +1,14 @@
 var mapKeyValue = new Map();
+
 var objectKeyValue = {};
+
+objectKeyValue.get = function (key) {
+    return this[key];
+}
+objectKeyValue.set = function (key, value) {
+    this[key] = value;
+}
+
 const Count = 1000000;
 
 // ###set
@@ -10,7 +19,8 @@ for (let i = 0; i < Count; i++) {
 console.timeEnd("mapKeyValue#set");
 console.time("objectKeyValue#set");
 for (let i = 0; i < Count; i++) {
-    objectKeyValue[i] = i;
+    objectKeyValue.set(i, i);
+    //objectKeyValue[i] = i;
 }
 console.timeEnd("objectKeyValue#set");
 
@@ -22,7 +32,8 @@ for (let i = 0; i < Count; i++) {
 console.timeEnd("mapKeyValue#get");
 console.time("objectKeyValue#get");
 for (let i = 0; i < Count; i++) {
-    objectKeyValue[i];
+    //objectKeyValue[i];
+    objectKeyValue.get(i);
 }
 console.timeEnd("objectKeyValue#get");
 
